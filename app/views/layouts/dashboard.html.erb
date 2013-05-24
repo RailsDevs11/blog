@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "dashboard_application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => "layouts/header" %>
+    <div id="content">
+      <div id="content-header">
+        <%= yield :header %>
+      </div>
+      <div id="breadcrumb">
+        <%= yield :breadcrumb %>
+      </div>
+      <div class="flash row margin-auto">
+        <div class="aution_flash_message">
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">&#215;</a>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag "dashboard_application" %>
+  </body>
+</html>

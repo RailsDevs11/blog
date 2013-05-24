@@ -1,0 +1,28 @@
+<a href="#" class="scrolltop">
+  <span>up</span>
+</a>
+
+<!-- begins navbar -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <% if current_user %>                                    
+            <li><%= link_to('Dashboard', user_dashboard_index_path) %></li>                
+            <li><%= link_to('Sign out', destroy_user_session_path, :class=>"btn-header", :method => :delete) %></li>
+          <% else %>
+            <li><%= link_to('Sign up', new_user_registration_path, :class=>"btn-header") %></li>                
+            <li><%= link_to('Sign in', new_user_session_path, :class=>"btn-header") %></li>                
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ends navbar -->

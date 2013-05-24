@@ -1,0 +1,41 @@
+<div id="header">
+  <h1 class="logo_fix">
+    <%#= link_to "CAT Admin", user_dashboard_index_path %>
+  </h1>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav btn-group">
+    <li class="btn btn-inverse" >
+      <%= link_to '<i class="icon icon-home"></i> <span class="text">Home</span>'.html_safe, root_path %>
+    </li>
+
+    <li class="btn btn-inverse" >
+      <%= link_to '<i class="icon icon-user"></i> <span class="text">Profile</span>'.html_safe, user_profile_path %>
+    </li>
+    <li class="btn btn-inverse">
+      <a title="" href="<%= edit_user_registration_path %>">
+        <i class="icon icon-cog"></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li class="btn btn-inverse">
+      <%= link_to '<i class="icon icon-share-alt"></i><span class="text">Logout</span>'.html_safe, destroy_user_session_path, :method => :delete %>
+    </li>
+  </ul>
+</div>
+
+<div id="sidebar">
+  <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active">
+      <%= link_to '<i class="icon icon-home"></i><span>Dashboard</span>'.html_safe, user_dashboard_index_path %>
+    </li>
+    <li>
+      <%= link_to '<i class="icon"></i><span>Create Blog</span>'.html_safe, "#" %>
+    </li>
+    <li>
+      <%= link_to '<i class="icon"></i><span>All Blogs</span>'.html_safe, "#" %>
+    </li>
+  </ul>
+</div>

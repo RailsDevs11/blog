@@ -1,0 +1,64 @@
+<% if resource.errors.any? %>
+  <%= error_message(resource.errors.full_messages, 'alert-error')%>
+<% end %>
+<div class="widget-box">
+  <div class="widget-title">
+    <span class="icon">
+      <i class="icon-pencil"></i>
+    </span>
+    <h5>Update Profile</h5>
+  </div>
+  <div class="widget-content">
+    <div class="row">
+      <div class="span2"></div>
+      <div class="span8 ">
+        <div class="row">&nbsp;</div>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <div class="row">
+            <%= hidden_field_tag :id, resource[:id] %>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <%= f.label :first_name,:class=>"control-label" %>
+            </div>
+            <div class="span4">
+              <%= f.text_field :first_name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <%= f.label :last_name,:class=>"control-label" %>
+            </div>
+            <div class="span4">
+              <%= f.text_field :last_name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <%= f.label :email,:class=>"control-label" %>
+            </div>
+            <div class="span4">
+              <%= f.text_field :email, :disabled => 'disabled'%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <%= f.label :username,:class=>"control-label" %>
+            </div>
+            <div class="span4">
+              <%= f.text_field :username %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3"></div>
+            <div class="span4 offset1">
+              <%= f.submit "Update Profile", :class =>"btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="span2"></div>
+    </div>
+  </div>
+</div>   
+

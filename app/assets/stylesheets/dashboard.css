@@ -1,0 +1,22 @@
+.row-size{
+  line-height: 25px;
+  div.font-style{
+    font-weight: bold;
+  }
+}
+.profile_box{
+  margin: -28px; 
+  background: none repeat scroll 0 0 white; 
+  border: 2px solid #A9A9A9;
+}
+.progress_bar_completeness{
+  margin-top: 8px; 
+  margin-bottom: 15px;
+}
+.profile_box_completeness{
+  font-size:17px; 
+  margin: -5px;
+}
+.margin_from_top{
+  padding: 6px;
+}

@@ -1,0 +1,41 @@
+<div id="content-header">
+  <h1>Your Profile</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="span1"></div>
+    <div class="span7 offset1">
+      <div class="widget-box">
+        <div class="widget-title">
+          <span class="icon">
+            <i class="icon-user"></i>
+          </span>
+          <h5><%= @user.full_name %></h5>
+        </div>
+        <div class="widget-content">
+          <div class="row row-size margin_from_top">
+            <div class="span2 offset1" style="text-align:left">
+              <span style="font-weight:bold">Username</span>
+            </div>
+            <div class="span2">
+              <%= @user.username %>
+            </div>
+          </div>
+          <div class="row row-size margin_from_top">
+            <div class="span2 offset1" style="text-align:left">
+              <span style="font-weight:bold">Email</span>
+            </div>
+            <div class="span2">
+              <%= @user.email %>
+            </div>
+          </div>
+        </div>
+        <div class='span8 offset2'>
+          <%= link_to 'Update Profile', edit_user_registration_path, :class => 'btn btn-primary' %>  
+          <%= link_to 'Back', user_dashboard_index_path, :class => 'btn btn-inverse' %>  
+        </div>
+      </div>
+    </div>
+    <div class="span3"></div>
+  </div>
+</div>
