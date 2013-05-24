@@ -1,0 +1,45 @@
+<div class="widget-box">
+  <label><div class="widget-title cursor-pointer">
+    <span class="icon">
+      <input type="checkbox" name="post" id="online_auction_list_chk" href="#online_auction_list_div" class="toggle" />
+    </span>
+    <h5>Customers Sub Account Details</h5>
+  </div></label>
+  <div class="widget-content nopadding" id="online_auction_list_div" >
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Date and Time</th>
+          <th>Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless posts.blank? %>
+          <% posts.each do |post| %>
+            <tr>
+              <td><%= post.title %></td>
+              <td style='width: 400px;'><%= post.content %></td>
+              <td><%= date_formate(post.created_at) %></td>
+              <td style='text-align: center;'>
+                <%= link_to 'Edit', edit_user_post_path(post), 
+                  :class=>"btn btn-mini btn-primary" %>
+                <%= link_to 'Preview', user_post_path(post), 
+                  :class=>"btn btn-mini btn-inverse" %>
+                <%= link_to 'Delete', user_post_path(post), method: :delete, 
+                  :class=>"btn btn-mini btn-danger",
+                  :confirm => 'Are you sure do you want to delete this post?',
+                  "original-title" => "delete your post" %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="3" class="row_font_color"><h4>There is no records found!</h4></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

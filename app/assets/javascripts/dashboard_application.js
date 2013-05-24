@@ -17,5 +17,6 @@
 //= require jquery.peity.min
 //= require fullcalendar.min
 //= require unicorn
+//= require admin_dashboard
 //= require unicorn.dashboard
 //= require form_savior

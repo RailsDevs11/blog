@@ -8,5 +8,10 @@ module ApplicationHelper
       end
     end
   end  
+    
+  def date_formate(date)
+    return nil if date.blank?
+    date.strftime('%m/%d/%Y %I:%M %p')
+  end
   
 end

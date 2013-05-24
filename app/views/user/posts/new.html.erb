@@ -1,0 +1,29 @@
+<% content_for :header do %>
+  <h1>Add your post here</h1>
+<% end %>
+
+<div class="container-fluid">
+  <% if @post.errors.any? %>
+    <%= error_message(@post.errors.full_messages, 'alert-error')%>
+  <% end %>
+  <div class="row-fluid no_margin_top">
+    <div class="span9 offset1">
+      <%= simple_form_for(@post, :url => user_posts_path, 
+        :html => { :method => :post, :class=>"form-horizontal" } ) do |f| %>
+        <div class="widget-box">
+          <label>
+            <div class="widget-title cursor-pointer">
+              <span class="icon">
+                <input type="checkbox" name="event" id='' href="#add_content" class="toggle" />                  
+              </span>
+              <h5>New Post</h5>
+            </div>
+          </label>
+          <div class="widget-content nopadding" id="add_content">        
+            <%= render :partial => "form", :locals => { :f => f } %>
+          </div>
+        </div>
+      <% end %>      
+    </div>
+  </div>
+</div>
