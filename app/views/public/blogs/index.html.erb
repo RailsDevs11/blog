@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10 offset1">
+      <div class="widget-box">
+        <div class="widget-title">
+          <span class="icon">
+            <i class="icon-refresh"></i>
+          </span> 
+          <h5>All Blogs</h5>
+        </div>
+        <div class="widget-content nopadding updates">
+          <% @posts.each do |post| %>
+            <div class="new-update clearfix">
+              <i class="icon-ok-sign"></i>
+              <span class="update-done">                    
+                <a href="<%= public_blog_path(post) %>" title=""><strong><%= post.title %></strong></a>
+                <span><%= post.content %></span>
+              </span>
+              <span class="update-date"><span class="update-day"><%= day_format(post.created_at) %></span><%= month_format(post.created_at) %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

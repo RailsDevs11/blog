@@ -11,6 +11,10 @@ Cat::Application.routes.draw do
     end
     resources :posts
   end
-
+  
+  namespace 'public' do
+    resources :blogs
+  end
+  
   root :to => 'home#index'
 end

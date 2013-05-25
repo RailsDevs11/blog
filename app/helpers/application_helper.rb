@@ -13,5 +13,15 @@ module ApplicationHelper
     return nil if date.blank?
     date.strftime('%m/%d/%Y %I:%M %p')
   end
+
+  def day_format(date)
+    return nil if date.blank?
+    date.strftime('%d')
+  end
+
+  def month_format(date)
+    return nil if date.blank?
+    date.strftime('%b')
+  end
   
 end
