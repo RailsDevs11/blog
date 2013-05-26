@@ -1,0 +1,8 @@
+<li>
+  <div class="article-post">
+    <p>
+      <a href="javascript:void(0);"><%= truncate_string(recent_post.content, 50) %></a>
+    </p>    
+    <span class="user-info"> By: <%= recent_post.post_user_name %> on <%= date_formate(recent_post.created_at) %> </span>
+  </div>
+</li>

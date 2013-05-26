@@ -7,4 +7,8 @@ class Comment < ActiveRecord::Base
   def comment_user
     self.post.user.full_name
   end
+    
+  def is_owner?(user_id)
+    return (self.user.id === user_id)
+  end
 end

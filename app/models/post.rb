@@ -25,6 +25,9 @@ class Post < ActiveRecord::Base
   def get_likes_count
     self.likes.count
   end
-
-
+  
+  def post_user_name
+    self.user.full_name
+  end
+  
 end

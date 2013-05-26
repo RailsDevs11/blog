@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   #define association
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
+  has_many :comments, :through => :posts
   
   #return the true if profile is completed
   def is_profile_complete?
@@ -55,4 +56,14 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
   
+  #Fetch latest 3 post to show on dashboard area
+  #created_at desc will show last created post
+  def recent_posts
+    self.posts.limit(5).order('created_at DESC')
+  end
+  
+  #Fetch latest 3 comments 
+  def recent_comments
+    self.comments.limit(5).order('created_at DESC')
+  end
 end

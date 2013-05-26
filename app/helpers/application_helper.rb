@@ -33,8 +33,12 @@ module ApplicationHelper
   #like 1 like or 0 unlike
   def like_status(post_id)
     post = Post.where(:id => post_id).first
-    count = "<span class='label round alert'> #{post.get_likes_count} &nbsp</span>".html_safe
+    count = "<span class='badge badge-success'> #{post.get_likes_count} &nbsp</span>".html_safe
     post.is_like?(current_user.id) ? count+" UnLike" : count+" Like" if current_user.present?
   end 
-  
+
+  #
+  def truncate_string(str , length)
+    return str.truncate(length, :separator => '...') rescue ''
+  end
 end

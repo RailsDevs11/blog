@@ -30,4 +30,14 @@ $(document).ready(function() {
   });
   //end
 
+  //use for show sppiner when create comments
+  $(document).on("ajax:beforeSend", 'form', function(){
+    $("#loader").show();
+  });
+
+  //use for hide sppiner when ajax success
+  $(document).on('ajax:success', 'form', function(){
+    $("#loader").hide();
+  });
+
 });

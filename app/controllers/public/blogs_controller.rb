@@ -31,16 +31,17 @@ class Public::BlogsController < Public::BaseController
   end
 
   def destroy
-    @post = Post.where(:id => params[:id]).first
-    @comment = @post.comments.where(:id => params[:id])
+    @post = Post.where(:id => params[:post_id]).first
+    @comment = @post.comments.where(:id => params[:id]).first
     @comment.destroy
 
     respond_to do |format|
       format.js { 
+        @comments = @post.comments
         flash[:notice] = 'Comment was successfully deleted'
         render action: :create 
       }
-    end
+    end  
   end
 
   #Like or unlike a post
@@ -50,10 +51,10 @@ class Public::BlogsController < Public::BaseController
     if current_user && @post
       if @post.is_like?(current_user.id)
         @post.unlike(current_user.id)
-        render :text => "<span class='label round alert'> #{@post.get_likes_count}</span> Like" 
+        render :text => "<span class='badge badge-success'> #{@post.get_likes_count}</span> Like" 
       else
         @post.like(current_user.id)
-        render :text => "<span class='label round alert'> #{@post.get_likes_count}</span> UnLike" 
+        render :text => "<span class='badge badge-success'> #{@post.get_likes_count}</span> UnLike" 
       end
       return
     end

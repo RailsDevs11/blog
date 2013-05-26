@@ -39,7 +39,16 @@
         <div class="widget-title">
           <span class="icon"><i class="icon-file"></i></span>
           <h5>Recent Posts</h5>
-          <span title="54 total posts" class="label label-info tip-left">54</span>
+          <% post_count = @recent_posts.present? ? @recent_posts.count : '0' %>
+          <span title="54 total posts" class="label label-info tip-left"><%= post_count %></span>
+        </div>
+        <div class="widget-content nopadding">
+          <ul class="recent-posts">
+            <%= render :partial => 'recent_post', :collection => @recent_posts %>
+            <li class="viewall">
+              <a href="<%= user_posts_path %>" class="tip-top" data-original-title="View all posts"> + View all + </a>
+            </li>
+          </ul>
         </div>
     </div>
   </div>
@@ -48,7 +57,16 @@
       <div class="widget-title">
         <span class="icon"><i class="icon-comment"></i></span>
         <h5>Recent Comments</h5>
-        <span title="88 total comments" class="label label-info tip-left">88</span>
+        <% comment_count = @recent_comments.present? ? @recent_comments.count : '0' %>
+        <span title="88 total comments" class="label label-info tip-left"><%= comment_count %></span>
+      </div>
+      <div class="widget-content nopadding">
+        <ul class="recent-posts">
+          <%= render :partial => 'recent_comment', :collection => @recent_comments %>
+          <li class="viewall">
+            <a href="#" class="tip-top" data-original-title="View all posts"> + View all + </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -56,6 +74,6 @@
 
 <div class="row-fluid">
   <div id="footer" class="span12">
-    @2013 &copy; Rachel
+    @2013 &copy; Blog-Comments
   </div>
 </div>
