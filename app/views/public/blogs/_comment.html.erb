@@ -6,10 +6,10 @@
           <a href="#"><%= comment.content %></a>
         </p>  
         <span class="user-info"> User: <%= comment.comment_user %> on <%= date_formate(comment.created_at) %> </span>
-        <%# if current_user.present? && comment.is_owner?(current_user.id) %>
+        <% if current_user.present? && comment.is_owner?(current_user.id) %>
           <%= link_to 'x', public_blog_path(comment, :post_id => comment.post.id), 
             method: :delete, :class=>"badge badge-important", :remote => true %>
-        <%# end %>
+        <% end %>
       </div>
     </li>
   </ul>

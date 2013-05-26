@@ -15,6 +15,7 @@ class Public::BlogsController < Public::BaseController
   #
   def create    
     @comment = @post.comments.new(params[:comment])
+    @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         format.js { 
@@ -22,8 +23,7 @@ class Public::BlogsController < Public::BaseController
         }
       else
         format.js { 
-          flash[:error] = 'Proble while creating comment'
-          render action: "new" 
+          flash[:error] = @comment.errors.full_messages.join('<br/>')
         }
       end
     end
@@ -33,7 +33,7 @@ class Public::BlogsController < Public::BaseController
   def destroy
     @post = Post.where(:id => params[:post_id]).first
     @comment = @post.comments.where(:id => params[:id]).first
-    @comment.destroy
+    @comment.destroy if @comment.is_owner?(current_user.id)
 
     respond_to do |format|
       format.js { 

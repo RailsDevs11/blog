@@ -15,7 +15,7 @@ $(document).ready(function() {
     }
   });
 
-  // Follow a customer or Like any entity.
+  // Like and unlike post
   $('.like').on('click', function() {
     var id = $(this).attr('data-id');
     var me = $(this);

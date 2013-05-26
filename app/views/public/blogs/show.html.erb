@@ -33,7 +33,7 @@
 
       <%= simple_form_for(@comment, :url => public_blogs_path(:id => @post.id), :remote => true) do |f| %>
         <%= f.text_area :content, :rows => '3' %>
-        <%= f.submit 'Submit' %>
+        <%= f.submit 'Submit', :class => 'btn btn-primary' %>
         <span id="loader" style="display: none;">
           <%= image_tag("/assets/spinner.gif") %>
         </span>

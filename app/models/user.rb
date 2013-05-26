@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   #define association
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
-  has_many :comments, :through => :posts
+  has_many :comments
   
   #return the true if profile is completed
   def is_profile_complete?

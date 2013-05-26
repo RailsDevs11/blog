@@ -1,6 +1,7 @@
 class User::PostsController < User::BaseController
   before_filter :authenticate_user!
-
+  before_filter :is_post_exist?, :except => [:index, :new, :create]
+  
   def index
     @posts = current_user.posts
   end
@@ -49,4 +50,14 @@ class User::PostsController < User::BaseController
       format.html { redirect_to user_posts_path, notice: 'Post was successfully deleted.'  }
     end
   end
+  
+  private
+  #checking fo post and if post not present it return
+  def is_post_exist?
+    @post = current_user.posts.where(:id => params[:id]).first
+    unless @post.present?
+      redirect_to user_posts_path, notice: 'You dont have access to requested post'
+    end
+  end
+  
 end
