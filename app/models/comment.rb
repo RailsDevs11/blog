@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   
   #define validation
   validates :content, :presence => true
+  scope :created_at_order, order('created_at DESC')
   
   #define associations
   belongs_to :post

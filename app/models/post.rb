@@ -3,7 +3,8 @@ class Post < ActiveRecord::Base
   
   #define validation
   validates :title, :presence => true
-  
+  scope :created_at_order, order('created_at DESC')
+
   #define association
   belongs_to :user
   has_many :likes

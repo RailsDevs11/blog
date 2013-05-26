@@ -3,13 +3,13 @@ class Public::BlogsController < Public::BaseController
   before_filter :is_login?, :only => [:create]
   
   def index
-    @posts = Post.all
+    @posts = Post.created_at_order
   end
 
   def show
     @post = Post.where(:id => params[:id]).first
     @comment = @post.comments.new
-    @comments = @post.comments
+    @comments = @post.comments.created_at_order
   end
   
   #
@@ -27,7 +27,7 @@ class Public::BlogsController < Public::BaseController
         }
       end
     end
-    @comments = @post.comments
+    @comments = @post.comments.created_at_order
   end
 
   def destroy
@@ -37,7 +37,7 @@ class Public::BlogsController < Public::BaseController
 
     respond_to do |format|
       format.js { 
-        @comments = @post.comments
+        @comments = @post.comments.created_at_order
         flash[:notice] = 'Comment was successfully deleted'
         render action: :create 
       }
@@ -70,7 +70,7 @@ class Public::BlogsController < Public::BaseController
     unless current_user.present?
       respond_to do |format|
         format.js { 
-          @comments = @post.comments
+          @comments = @post.comments.created_at_order
           flash[:error] = "You need to sign in or sign up before continuing." 
           render action: :create and return true 
         }

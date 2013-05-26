@@ -3,7 +3,7 @@ class User::PostsController < User::BaseController
   before_filter :is_post_exist?, :except => [:index, :new, :create]
   
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.created_at_order
   end
 
   def show

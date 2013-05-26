@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   #define constant for profile completeness
-  PROFILE_ATTRIBUTES = [:email, :first_name, :last_name, :address, :city, :state, :zip_code, :country, :username]
+  PROFILE_ATTRIBUTES = [:email, :first_name, :last_name, :username]
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, :confirmable, :authentication_keys => [:login]
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   #define association
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   
   #return the true if profile is completed
   def is_profile_complete?
