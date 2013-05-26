@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require admin_dashboard
 //= require excanvas.min
 //= require jquery.ui.custom
 //= require jquery.flot.min
@@ -17,6 +18,5 @@
 //= require jquery.peity.min
 //= require fullcalendar.min
 //= require unicorn
-//= require admin_dashboard
 //= require unicorn.dashboard
 //= require form_savior

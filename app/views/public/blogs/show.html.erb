@@ -22,17 +22,19 @@
           </div>
         </div>        
       </div>
+      <a href="#" class="like success" style="font-size: 15px;" data-id="<%= @post.id %>">
+        <%= like_status(@post.id) %>
+      </a><br />
       
       COMMENTS :
       <div id="comments">
-        <%#= render @comments %>
+        <%= render :partial => 'comment', :collection => @comments %>
       </div>
 
-      <%= simple_form_for(@comment, :url => public_blogs_path, :remote => true) do |f| %>
+      <%= simple_form_for(@comment, :url => public_blogs_path(:id => @post.id), :remote => true) do |f| %>
         <%= f.text_area :content, :rows => '3' %>
-        <%#= f.submit 'Submit' %>
+        <%= f.submit 'Submit' %>
       <% end %>
-      <button>Submit</button>
     </div>
   </div>
 </div>

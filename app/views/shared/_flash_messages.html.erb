@@ -1,0 +1,10 @@
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert_margin alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg.html_safe, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+  <% flash.discard(name) %>
+<% end %>
+

@@ -1,0 +1,4 @@
+$(".aution_flash_message").html("<%= escape_javascript(render :partial => 'shared/flash_messages') %>");
+$("#comments").html("<%= escape_javascript(render :partial => 'comment', :collection => @comments) %>");
+$("#comment_comment").val("");
+

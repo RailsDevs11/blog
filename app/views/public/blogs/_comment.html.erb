@@ -1,0 +1,11 @@
+<ul class="recent-comments">
+  <li>
+    <div class="comments">
+      <span class="user-info"> User: <%= comment.comment_user %> on <%= date_formate(comment.created_at) %> </span>
+      <a class="btn btn-danger btn-mini" href="#">Delete</a>
+      <p>
+        <a href="#"><%= comment.content %></a>
+      </p>  
+    </div>
+  </li>
+</ul>

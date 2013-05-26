@@ -15,5 +15,19 @@ $(document).ready(function() {
     }
   });
 
+  // Follow a customer or Like any entity.
+  $('.like').on('click', function() {
+    var id = $(this).attr('data-id');
+    var me = $(this);
+    var url = '/public/blogs/'+id+'/like'
+
+    $.get(url, { id : id}, function(data) {
+      if (data != 'fail') {
+        me.html(data);
+      }
+    });
+    return false;
+  });
+  //end
 
 });

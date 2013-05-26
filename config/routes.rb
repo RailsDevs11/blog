@@ -13,8 +13,12 @@ Cat::Application.routes.draw do
   end
   
   namespace 'public' do
-    resources :blogs
+    resources :blogs do
+      get :like, on: :member
+    end
   end
+  
+  match '/public/blogs/:action(/:id)' => 'public/blogs#:action'
   
   root :to => 'home#index'
 end
