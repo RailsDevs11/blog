@@ -18,6 +18,7 @@ Cat::Application.routes.draw do
     end
   end
   
+  match '/search' => 'home#search'
   match '/public/blogs/:action(/:id)' => 'public/blogs#:action'
   
   root :to => 'home#index'

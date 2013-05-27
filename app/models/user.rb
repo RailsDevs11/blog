@@ -22,7 +22,17 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
   has_many :comments, :dependent => :destroy
-  
+
+  scope :user_search_by_keyword, lambda {|keyword|
+    self.where(
+      "lower(first_name) like ? "+
+      "or "+
+      "lower(username) like ? ",
+      '%'+ keyword.downcase+'%',
+      '%'+keyword.downcase+'%'
+    )
+  }
+    
   #return the true if profile is completed
   def is_profile_complete?
     @complete_attributes_count = 0

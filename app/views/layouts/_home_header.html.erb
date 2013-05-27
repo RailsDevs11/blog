@@ -13,6 +13,8 @@
       </a>
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
+          <li><%= link_to('Home', root_path) %></li>
+          <li><%= link_to('Blogs', public_blogs_path) %></li>
           <% if current_user %>                                    
             <li><%= link_to('Dashboard', user_dashboard_index_path) %></li>                
             <li><%= link_to('Sign out', destroy_user_session_path, :class=>"btn-header", :method => :delete) %></li>

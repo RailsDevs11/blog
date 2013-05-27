@@ -2,17 +2,19 @@ class Public::BlogsController < Public::BaseController
   before_filter :authenticate_user!, :except => [:index, :show, :create]
   before_filter :is_login?, :only => [:create]
   
+  #listing of all the post on the admin area side
   def index
     @posts = Post.created_at_order
   end
-
+  
+  #show all the comments on the public place
   def show
     @post = Post.where(:id => params[:id]).first
     @comment = @post.comments.new
     @comments = @post.comments.created_at_order
   end
   
-  #
+  #create comments and save into db
   def create    
     @comment = @post.comments.new(params[:comment])
     @comment.user_id = current_user.id
@@ -44,7 +46,7 @@ class Public::BlogsController < Public::BaseController
     end  
   end
 
-  #Like or unlike a post
+  #Like or unlike a post with total count 
   def like
     post_id = params[:id]
     @post = Post.where(:id => post_id).first

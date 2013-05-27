@@ -16,7 +16,6 @@
 //= require jquery.flot.min
 //= require jquery.flot.resize
 //= require jquery.peity.min
-//= require fullcalendar.min
 //= require unicorn
 //= require unicorn.dashboard
 //= require form_savior

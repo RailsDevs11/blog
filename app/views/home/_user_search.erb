@@ -1,0 +1,42 @@
+ <!-- Modal -->
+<div id="event_pages" class="modal hide fade" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <b><h3>Result for Users</h3></b>
+  </div>
+  <div class="modal-header">
+    <div class="row-fluid">
+      <div class="span6">
+        <b><h4>First name</h4></b>
+      </div>
+      <div class="span6">
+        <b><h4>Username</h4></b>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <% if users.present? %>
+      <% users.each do |user| %>        
+        <div class="row-fluid">
+          <div class="span5">
+            <b><h5><%= truncate_string(user.first_name, 30) %></b></h5>
+          </div>
+          <div class="span7">
+            <b><h5><%= truncate_string(user.username, 45) %></b></h5>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="row-fluid">
+          <div class="span12">
+            <h5>There is no search result for given keyword</h5>
+          </div>
+      </div>
+    <% end %>    
+  </div>
+  <div class="modal-footer">
+    <a href='javascript:void(0)' class="btn" data-dismiss="modal">Close</a>
+  </div>  
+</div>
+
