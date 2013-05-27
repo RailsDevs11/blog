@@ -4,7 +4,7 @@ Cat::Application.routes.draw do
   #devise_for :users
   
   namespace 'user' do
-    resources 'dashboard' , :only => [:index]
+    resources 'dashboard', :only => [:index]
     resource 'profile', :only => [:show] do
       put :change_password
       put :change_username
@@ -16,6 +16,7 @@ Cat::Application.routes.draw do
     resources :blogs do
       get :like, on: :member
     end
+    resources :profiles, :only => [:show]
   end
   
   match '/search' => 'home#search'

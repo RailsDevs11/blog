@@ -23,7 +23,7 @@
             <b><h5><%= truncate_string(user.first_name, 30) %></b></h5>
           </div>
           <div class="span7">
-            <b><h5><%= truncate_string(user.username, 45) %></b></h5>
+            <b><h5><%= link_to user.username, public_profile_path(user) %></b></h5>
           </div>
         </div>
       <% end %>
